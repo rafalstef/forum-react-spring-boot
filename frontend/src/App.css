@@ -69,3 +69,11 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.navbar-center
+{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
