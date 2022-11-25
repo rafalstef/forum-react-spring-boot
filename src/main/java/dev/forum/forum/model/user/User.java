@@ -1,12 +1,14 @@
 package dev.forum.forum.model.user;
 
+import dev.forum.forum.model.Comment;
+import dev.forum.forum.model.ForumThread;
+import dev.forum.forum.model.Post;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.time.Instant;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,20 +22,30 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    @NotBlank(message = "Username is required")
+    @Column(name = "username", unique = true, nullable = false, updatable = false)
     private String username;
 
-    @NotBlank(message = "Password is required")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Email
-    @NotEmpty(message = "Email is required")
+    @Column(name = "email", nullable = false, updatable = false)
     private String email;
 
+    @Column(name = "created", nullable = false, updatable = false)
     private Instant created;
 
+    @Column(name = "enabled", nullable = false)
     private boolean enabled;
 
+    @Column(name = "user_role", nullable = false)
     private UserRole userRole;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Post> posts;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Comment> comments;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "subscribers")
+    private Set<ForumThread> subscribedThreads;
 }

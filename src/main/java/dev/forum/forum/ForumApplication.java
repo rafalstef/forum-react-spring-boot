@@ -24,15 +24,14 @@ public class ForumApplication {
 
 
         return args -> {
-            User user1 = new User(
-                    null,
-                    "janek",
-                    passwordEncoder.encode("password"),
-                    "jan.kowalski@email.com",
-                    Instant.now(),
-                    Boolean.TRUE,
-                    UserRole.USER
-            );
+            User user1 = User.builder()
+                    .username("janek")
+                    .email("jan.kowalski@email.com")
+                    .password(passwordEncoder.encode("password"))
+                    .created(Instant.now())
+                    .enabled(Boolean.TRUE)
+                    .userRole(UserRole.USER)
+                    .build();
 
             userRepo.save(user1);
         };
