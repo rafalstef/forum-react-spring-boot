@@ -1,6 +1,6 @@
-package dev.forum.forum.email;
+package dev.forum.forum.utils.email;
 
-import dev.forum.forum.exception.ResourceNotFoundException;
+import dev.forum.forum.utils.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

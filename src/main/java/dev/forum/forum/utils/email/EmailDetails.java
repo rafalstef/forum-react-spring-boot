@@ -1,4 +1,4 @@
-package dev.forum.forum.email;
+package dev.forum.forum.utils.email;
 
 import lombok.*;
 

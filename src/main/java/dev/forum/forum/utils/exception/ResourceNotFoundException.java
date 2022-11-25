@@ -1,4 +1,4 @@
-package dev.forum.forum.exception;
+package dev.forum.forum.utils.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

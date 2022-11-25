@@ -1,7 +1,7 @@
 package dev.forum.forum.controller;
 
-import dev.forum.forum.dto.UserGetDto;
 import dev.forum.forum.service.UserService;
+import dev.forum.forum.utils.dto.UserGetDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

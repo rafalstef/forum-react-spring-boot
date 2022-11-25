@@ -1,11 +1,11 @@
 package dev.forum.forum.service;
 
-import dev.forum.forum.dto.AuthenticationResponse;
-import dev.forum.forum.dto.LoginRequest;
-import dev.forum.forum.dto.RegisterRequest;
-import dev.forum.forum.email.EmailDetails;
-import dev.forum.forum.email.EmailService;
-import dev.forum.forum.exception.ResourceNotFoundException;
+import dev.forum.forum.utils.dto.AuthenticationResponse;
+import dev.forum.forum.utils.dto.LoginRequest;
+import dev.forum.forum.utils.dto.RegisterRequest;
+import dev.forum.forum.utils.email.EmailDetails;
+import dev.forum.forum.utils.email.EmailService;
+import dev.forum.forum.utils.exception.ResourceNotFoundException;
 import dev.forum.forum.model.ConfirmationToken;
 import dev.forum.forum.model.user.SecurityUser;
 import dev.forum.forum.model.user.User;
@@ -13,9 +13,12 @@ import dev.forum.forum.model.user.UserRole;
 import dev.forum.forum.repository.ConfirmationTokenRepo;
 import dev.forum.forum.repository.UserRepo;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -98,6 +101,17 @@ public class AuthService {
         // if found set enabled
         user.setEnabled(Boolean.TRUE);
         userRepo.save(user);
+    }
+
+    public boolean isLoggedIn() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
+    }
+
+    public User getCurrentUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return userRepo.findByUsername(auth.getName())
+                .orElseThrow(() -> new UsernameNotFoundException("Username not found - " + auth.getName()));
     }
 }
 

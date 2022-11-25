@@ -1,8 +1,8 @@
 package dev.forum.forum.controller;
 
-import dev.forum.forum.dto.AuthenticationResponse;
-import dev.forum.forum.dto.LoginRequest;
-import dev.forum.forum.dto.RegisterRequest;
+import dev.forum.forum.utils.dto.AuthenticationResponse;
+import dev.forum.forum.utils.dto.LoginRequest;
+import dev.forum.forum.utils.dto.RegisterRequest;
 import dev.forum.forum.service.AuthService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

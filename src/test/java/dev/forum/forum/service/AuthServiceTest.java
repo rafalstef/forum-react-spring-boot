@@ -1,9 +1,9 @@
 package dev.forum.forum.service;
 
-import dev.forum.forum.dto.RegisterRequest;
-import dev.forum.forum.email.EmailDetails;
-import dev.forum.forum.email.EmailService;
-import dev.forum.forum.exception.ResourceNotFoundException;
+import dev.forum.forum.utils.dto.RegisterRequest;
+import dev.forum.forum.utils.email.EmailDetails;
+import dev.forum.forum.utils.email.EmailService;
+import dev.forum.forum.utils.exception.ResourceNotFoundException;
 import dev.forum.forum.model.ConfirmationToken;
 import dev.forum.forum.model.user.User;
 import dev.forum.forum.model.user.UserRole;

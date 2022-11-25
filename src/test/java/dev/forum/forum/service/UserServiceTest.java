@@ -1,8 +1,8 @@
 package dev.forum.forum.service;
 
-import dev.forum.forum.dto.UserGetDto;
-import dev.forum.forum.exception.ResourceNotFoundException;
-import dev.forum.forum.mapper.MapStructMapper;
+import dev.forum.forum.utils.dto.UserGetDto;
+import dev.forum.forum.utils.exception.ResourceNotFoundException;
+import dev.forum.forum.utils.mapper.UserMapper;
 import dev.forum.forum.model.user.User;
 import dev.forum.forum.model.user.UserRole;
 import dev.forum.forum.repository.UserRepo;
@@ -29,7 +29,7 @@ class UserServiceTest {
     @Mock
     private UserRepo userRepo;
     @Mock
-    private MapStructMapper mapper;
+    private UserMapper mapper;
     @InjectMocks
     private UserService sut;
 

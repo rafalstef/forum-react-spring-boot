@@ -1,8 +1,8 @@
 package dev.forum.forum.service;
 
-import dev.forum.forum.dto.UserGetDto;
-import dev.forum.forum.exception.ResourceNotFoundException;
-import dev.forum.forum.mapper.MapStructMapper;
+import dev.forum.forum.utils.dto.UserGetDto;
+import dev.forum.forum.utils.exception.ResourceNotFoundException;
+import dev.forum.forum.utils.mapper.UserMapper;
 import dev.forum.forum.model.user.SecurityUser;
 import dev.forum.forum.model.user.User;
 import dev.forum.forum.repository.UserRepo;
@@ -20,7 +20,7 @@ import javax.transaction.Transactional;
 public class UserService implements UserDetailsService {
 
     private final UserRepo userRepo;
-    private final MapStructMapper mapper;
+    private final UserMapper mapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -1,4 +1,4 @@
-package dev.forum.forum.exception;
+package dev.forum.forum.utils.exception;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpHeaders;

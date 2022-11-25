@@ -1,4 +1,4 @@
-package dev.forum.forum.dto;
+package dev.forum.forum.utils.dto;
 
 import lombok.*;
 

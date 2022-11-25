@@ -1,4 +1,4 @@
-package dev.forum.forum.exception;
+package dev.forum.forum.utils.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
