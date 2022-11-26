@@ -25,7 +25,7 @@ public class ForumThread {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "forumThread")
     private List<Post> posts;
 
     @Column(name = "created_date", updatable = false)
