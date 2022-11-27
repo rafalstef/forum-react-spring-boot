@@ -3,7 +3,8 @@ package dev.forum.forum.utils.mapper;
 import dev.forum.forum.model.Comment;
 import dev.forum.forum.model.Post;
 import dev.forum.forum.model.user.User;
-import dev.forum.forum.utils.dto.CommentDto;
+import dev.forum.forum.utils.dto.CommentRequest;
+import dev.forum.forum.utils.dto.CommentResponse;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -25,11 +26,9 @@ class CommentMapperTest {
                 .id(100L)
                 .build();
 
-        CommentDto dto = CommentDto.builder()
-                .id(1L)
+        CommentRequest dto = CommentRequest.builder()
                 .text("Text")
                 .postId(post.getId())
-                .username(user.getUsername())
                 .build();
 
         Comment comment = sut.mapDtoToComment(dto, post, user);
@@ -61,12 +60,12 @@ class CommentMapperTest {
                 .user(user)
                 .build();
 
-        CommentDto dto = sut.mapCommentToDto(comment);
+        CommentResponse dto = sut.mapCommentToDto(comment);
 
         assertEquals(comment.getId(), dto.getId());
         assertEquals(comment.getText(), dto.getText());
-        assertEquals(comment.getCreatedDate(), dto.getCreatedDate());
         assertEquals(comment.getUser().getUsername(), dto.getUsername());
         assertEquals(comment.getPost().getId(), dto.getPostId());
+        assertNotNull(dto.getDuration());
     }
 }
