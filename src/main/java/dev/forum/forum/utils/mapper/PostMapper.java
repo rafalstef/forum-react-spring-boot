@@ -15,20 +15,21 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 
-import static dev.forum.forum.model.VoteType.DOWN_VOTE;
+import static dev.forum.forum.model.VoteType.DOWNVOTE;
 import static dev.forum.forum.model.VoteType.UPVOTE;
 
 @Mapper(componentModel = "spring")
 public abstract class PostMapper {
 
     @Autowired
-    private CommentRepo commentRepo;
+    protected CommentRepo commentRepo;
     @Autowired
-    private VoteRepo voteRepo;
+    protected VoteRepo voteRepo;
     @Autowired
-    private AuthService authService;
+    protected AuthService authService;
 
     @Mapping(target = "id", source = "postRequest.id")
     @Mapping(target = "name", source = "postRequest.name")
@@ -42,6 +43,7 @@ public abstract class PostMapper {
     @Mapping(target = "id", source = "id")
     @Mapping(target = "forumThreadName", source = "forumThread.name")
     @Mapping(target = "username", source = "user.username")
+    @Mapping(target = "voteCount", expression = "java(voteCount(post))")
     @Mapping(target = "commentCount", expression = "java(commentCount(post))")
     @Mapping(target = "duration", expression = "java(getDuration(post))")
     @Mapping(target = "upVote", expression = "java(isPostUpVoted(post))")
@@ -49,7 +51,12 @@ public abstract class PostMapper {
     public abstract PostResponse mapToDto(Post post);
 
     Integer commentCount(Post post) {
-        return commentRepo.findByPost(post).size();
+        return commentRepo.countByPost(post);
+    }
+
+    Integer voteCount(Post post) {
+        List<Vote> postVotes = voteRepo.findAllByPost(post);
+        return postVotes.stream().mapToInt(vote -> vote.getVoteType().getDirection()).sum();
     }
 
     String getDuration(Post post) {
@@ -61,7 +68,7 @@ public abstract class PostMapper {
     }
 
     boolean isPostDownVoted(Post post) {
-        return checkVoteType(post, DOWN_VOTE);
+        return checkVoteType(post, DOWNVOTE);
     }
 
     private boolean checkVoteType(Post post, VoteType voteType) {

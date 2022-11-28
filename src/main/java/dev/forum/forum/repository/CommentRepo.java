@@ -13,4 +13,6 @@ public interface CommentRepo extends JpaRepository<Comment, Long> {
     List<Comment> findAllByUserOrderByCreatedDateDesc(User user);
 
     List<Comment> findAllByPostOrderByCreatedDateDesc(Post post);
+
+    Integer countByPost(Post post);
 }
