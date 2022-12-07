@@ -5,6 +5,7 @@ import "../App.css";
 
 import UserService from "../services/user.service";
 
+
 let threadName = "movies";
 
 export default class Home extends Component {
@@ -65,7 +66,7 @@ export default class Home extends Component {
         {
           this.state.posts
             .map(post =>
-              <div key={post.id=1} className="test-div">
+              <div key={post.id} className="test-div">
                 <p><span className="username">{post.username} </span>| #{post.forumThreadName}</p>
                 <h4 className="post-class">{post.name}</h4> 
                 {post.description}

@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 
+
 import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
@@ -46,9 +47,14 @@ class App extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-light bg-light">
-          <Link to={"/home"} className="navbar-brand">
-            Forum-projekt
-          </Link>
+        <a href={"/home"}><img className="logo"
+                        src="https://i.postimg.cc/DmV2DpLb/bez-tla.png"
+                        width="15%"
+                        height="auto"
+                        alt="logo" 
+                        /></a>
+
+          
           
           <div className="navbar-nav mr-auto ml-auto">
             {/*<li className="nav-item">
