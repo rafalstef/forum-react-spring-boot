@@ -82,13 +82,13 @@ const App = () => {
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
-                Login
+              <button class="button-24" role="button">Login</button>
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/register"} className="nav-link">
-                Sign Up
+              <button class="button-25" role="button">Sign Up</button>
               </Link>
             </li>
           </div>

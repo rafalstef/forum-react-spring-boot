@@ -90,3 +90,64 @@ label {
 {
   font-weight: bold;
 }
+
+
+
+.button-24 {
+  background: #007BFF;
+  border: 1px solid #007BFF;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 12px;
+  min-height: 30px;
+  padding: 12px 14px;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #007BFF;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
+.button-25 {
+  background-color: initial;
+  border: 1px solid #007BFF;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #007BFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 12px;
+  min-height: 30px;
+  padding: 12px 14px;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.button-25:hover,
+.button-25:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: white;
+  background-color: #007BFF;
+}
+
+.button-25:active {
+  opacity: .5;
+}
