@@ -1,26 +1,38 @@
-import axios from 'axios';
-import authHeader from './auth-header';
+import axios from "axios";
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = "http://localhost:8080/api/";
 
-class UserService {
-  getAllThreads() {
-    return axios.get(API_URL + 'threads');
-  }
-  getAllPosts() {
-    return axios.get(API_URL + 'posts/all');
-  }
-  getThreadByName(threadName) {
-    return axios.get(API_URL + 'posts/thread/'+threadName);
-  }
+const getPublicContent = () => {
+  return axios.get(API_URL + "users/janek");
+};
 
-  getComments(postId) {
-    return axios.get(API_URL + 'comments/post/'+postId);
-  }
+const getUserBoard = () => {
+  return axios.get(API_URL + "users/janek");
+};
 
-  getUserBoard() {
-    return axios.get(API_URL + 'user', { headers: authHeader() });
-  }
+const getAllThreads= () =>{
+  return axios.get(API_URL + 'threads');
+};
+const getAllPosts= () =>{
+  return axios.get(API_URL + 'posts/all');
+};
+const getThreadByName= (threadName) =>{
+  return axios.get(API_URL + 'posts/thread/'+threadName);
+};
+
+const getComments= (postId) =>{
+  return axios.get(API_URL + 'comments/post/'+postId);
+};
+
+const UserService = {
+  getPublicContent,
+  getUserBoard,
+  getAllThreads,
+  getAllPosts,
+  getThreadByName,
+  getComments
 }
 
-export default new UserService();
+
+
+export default UserService;
