@@ -12,11 +12,13 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 
 
+
 // import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 
 const App = () => {
-
+  
+ 
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -55,10 +57,11 @@ const App = () => {
         <form class="form-inline">
           <div class="form-group mx-sm-2 mb-2">
             <label for="searchbar" class="sr-only"></label>
-            <input type="password" class="form-control" placeholder="#Example"/>
+            <input type="search" class="form-control" placeholder="#Example" />
           </div>
           <button type="submit" class="btn btn-primary mb-2">Search</button>
       </form>
+      
 
         </div>
 

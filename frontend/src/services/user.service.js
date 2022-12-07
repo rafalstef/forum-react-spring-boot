@@ -10,19 +10,28 @@ const getUserBoard = () => {
   return axios.get(API_URL + "users/janek");
 };
 
-const getAllThreads= () =>{
+const getAllThreads = () =>{
   return axios.get(API_URL + 'threads');
 };
-const getAllPosts= () =>{
+const getAllPosts = () =>{
   return axios.get(API_URL + 'posts/all');
 };
-const getThreadByName= (threadName) =>{
+const getThreadByName = (threadName) =>{
   return axios.get(API_URL + 'posts/thread/'+threadName);
 };
 
-const getComments= (postId) =>{
+const getComments = (postId) =>{
   return axios.get(API_URL + 'comments/post/'+postId);
 };
+
+const getSubscribedPosts = (username) =>{
+  return axios.get(API_URL + 'posts/subscribed/'+username);
+};
+
+const getUserPosts = (username) =>{
+  return axios.get(API_URL + 'posts/user/'+username);
+};
+
 
 const UserService = {
   getPublicContent,
@@ -30,7 +39,9 @@ const UserService = {
   getAllThreads,
   getAllPosts,
   getThreadByName,
-  getComments
+  getComments,
+  getSubscribedPosts,
+  getUserPosts
 }
 
 

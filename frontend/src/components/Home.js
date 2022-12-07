@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "../App.css";
-
-
-
 import UserService from "../services/user.service";
 
 
@@ -72,7 +69,10 @@ export default class Home extends Component {
                 {post.description}
                 
                 <div className="bottom-bar">
-                <div className="counter-div"><a className="button-plus">+ </a><span className="counter">{post.voteCount}</span><a className="button-minus"> -</a></div>
+                <div className="counter-div">
+                  <button type="button" class="btn btn-success">+</button>
+                  <span className="counter">{post.voteCount}</span>
+                  <button type="button" class="btn btn-danger">-</button></div>
                 <div className="comment-div">{post.commentCount} comments</div>
                 </div>
                 </div>
