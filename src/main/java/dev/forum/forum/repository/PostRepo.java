@@ -15,4 +15,6 @@ public interface PostRepo extends JpaRepository<Post, Long> {
     List<Post> findAllByUserOrderByCreatedDateDesc(User user);
 
     List<Post> findAllByForumThreadInOrderByCreatedDateDesc(Set<ForumThread> subscribedThreads);
+
+    List<Post> findAllByOrderByCreatedDateDesc();
 }

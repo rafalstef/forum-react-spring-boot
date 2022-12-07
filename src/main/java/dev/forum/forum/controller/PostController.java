@@ -6,6 +6,7 @@ import dev.forum.forum.utils.dto.PostResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,6 +19,11 @@ public class PostController {
 
     private final PostService postService;
 
+    @GetMapping("/all")
+    public ResponseEntity<List<PostResponse>> getAllPostsSortedByDateDesc() {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(postService.getAllOrderByCreatedDateDesc());
+    }
     @GetMapping("/thread/{forumThreadName}")
     public ResponseEntity<List<PostResponse>> getAllPostsFromThread(@PathVariable("forumThreadName") String forumThreadName) {
         return ResponseEntity.status(HttpStatus.OK)
@@ -30,6 +36,7 @@ public class PostController {
                 .body(postService.getAllByUser(username));
     }
 
+    @PreAuthorize("#username == authentication.principal.username")
     @GetMapping("/subscribed/{username}")
     public ResponseEntity<List<PostResponse>> getPostsFromSubscribedThreads(@PathVariable("username") String username) {
         return ResponseEntity.status(HttpStatus.OK)
