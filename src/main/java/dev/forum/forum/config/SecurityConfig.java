@@ -49,11 +49,12 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeRequests(auth -> auth
                         .antMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .antMatchers("/login", "/register", "/verify-account/**").permitAll()
-                        .antMatchers(HttpMethod.POST).authenticated()
-                        .antMatchers(HttpMethod.PUT).authenticated()
-                        .antMatchers(HttpMethod.DELETE).authenticated()
-                        .anyRequest().permitAll()
+                        .antMatchers("/api/auth/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/api/threads/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/api/comments/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/api/users/**").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .userDetailsService(userService)
                 .httpBasic()
@@ -72,8 +73,11 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedHeaders(List.of("*"));
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
+
         return source;
     }
 

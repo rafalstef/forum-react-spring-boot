@@ -15,7 +15,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 @Slf4j
 @AllArgsConstructor
 @RestController
-@RequestMapping()
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final AuthService authService;

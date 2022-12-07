@@ -13,7 +13,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/thread")
+@RequestMapping("/api/threads")
 public class ForumThreadController {
 
     private final ForumThreadService forumThreadService;

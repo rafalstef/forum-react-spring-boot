@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/vote")
+@RequestMapping("/api/votes")
 public class VoteController {
 
     private final VoteService voteService;
