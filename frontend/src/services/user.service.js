@@ -4,8 +4,15 @@ import authHeader from './auth-header';
 const API_URL = 'http://localhost:8080/api/';
 
 class UserService {
-  getPublicContent() {
+  getAllThreads() {
     return axios.get(API_URL + 'threads');
+  }
+  getThreads(threadName) {
+    return axios.get(API_URL + 'posts/thread/'+threadName);
+  }
+
+  getComments(postId) {
+    return axios.get(API_URL + 'comments/post/'+postId);
   }
 
   getUserBoard() {

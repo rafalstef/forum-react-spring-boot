@@ -77,3 +77,62 @@ label {
     text-align: center;
     margin: auto;
 }
+
+.test-div
+{
+  padding: 4%;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: white;
+  height: auto;
+
+}
+
+.post-class
+{
+  color: #263478;
+}
+
+.button-plus
+{
+  color: green;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.button-minus
+{
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+}
+.counter
+{
+  font-size: 20px;
+}
+
+.counter-div
+{
+  float: left;
+  width: 70%;
+  height: auto;
+}
+
+.commnet-div
+{
+  text-align: right;
+  float: left;
+  width: 30%;
+  height: auto;
+}
+.bottom-bar
+{
+  width: 100%;
+  height: auto;
+}
+
+.username
+{
+  font-weight: bold;
+}
