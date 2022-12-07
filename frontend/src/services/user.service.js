@@ -7,7 +7,10 @@ class UserService {
   getAllThreads() {
     return axios.get(API_URL + 'threads');
   }
-  getThreads(threadName) {
+  getAllPosts() {
+    return axios.get(API_URL + 'posts/all');
+  }
+  getThreadByName(threadName) {
     return axios.get(API_URL + 'posts/thread/'+threadName);
   }
 

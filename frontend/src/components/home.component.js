@@ -6,6 +6,7 @@ import "../App.css";
 import UserService from "../services/user.service";
 
 let threadName = "movies";
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    UserService.getThreads(threadName).then(
+    UserService.getAllPosts().then(
       response => {
          this.setState({
           
