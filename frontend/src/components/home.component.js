@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 import UserService from "../services/user.service";
 
 export default class Home extends Component {
@@ -7,17 +8,18 @@ export default class Home extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      threads: []
     };
   }
 
   componentDidMount() {
     UserService.getPublicContent().then(
       response => {
-        this.setState({
-          content: response.data
+         this.setState({
+          threads: response.data
         });
       },
+      
       error => {
         this.setState({
           content:
@@ -31,11 +33,18 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
+      
         <header className="jumbotron">
-          <h3>{this.state.content}</h3>
+        <ul>
+        {
+          this.state.threads
+            .map(thread =>
+              <li><div key={thread.id} className="container">{thread.name}, {thread.description}</div></li>
+            )
+        }
+      </ul>
         </header>
-      </div>
+      
     );
   }
 }
