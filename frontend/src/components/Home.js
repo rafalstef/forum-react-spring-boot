@@ -71,13 +71,13 @@ export default class Home extends Component {
               <p><span className="username">{post.username} </span>| #{post.forumThreadName}</p>
               <h4 className="post-class">{post.name}</h4> 
               {post.description}
-              
+              <hr></hr>
               <div className="bottom-bar">
               <div className="counter-div">
                 <button type="button" class="btn btn-success">+</button>
                 <span className="counter">{post.voteCount}</span>
                 <button type="button" class="btn btn-danger">-</button></div>
-              <div className="comment-div">{post.commentCount} comments</div>
+              <div className="comment-div"><b>{post.commentCount} comments</b></div>
               </div>
               </div>)
         ) :(
@@ -95,7 +95,8 @@ this.state.posts
       
       
       </div>
-    <div className="comment-div">{post.commentCount} comments</div>
+      <hr></hr>
+    <div className="comment-div2"><b>{post.commentCount} comments</b></div>
     </div>
     </div>)
         )}

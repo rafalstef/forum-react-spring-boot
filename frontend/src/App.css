@@ -71,6 +71,7 @@ label {
   float: left;
   width: 70%;
   height: auto;
+  
 }
 
 .commnet-div
@@ -79,6 +80,17 @@ label {
   float: left;
   width: 30%;
   height: auto;
+  font-weight: bold;
+}
+
+.commnet-div2
+{
+  text-align: right;
+  margin-left: 50%;
+  float: left;
+  width: 100%;
+  height: auto;
+  font-weight: bold;
 }
 .bottom-bar
 {
