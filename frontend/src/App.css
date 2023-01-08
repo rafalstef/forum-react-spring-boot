@@ -165,3 +165,72 @@ label {
 .button-25:active {
   opacity: .5;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background: #007BFF;
+  border: 1px solid #007BFF;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 12px;
+  min-width: 100px;
+  min-height: 30px;
+  padding: 12px 14px;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  vertical-align: right;
+}
+
+input[type=submit]:hover {
+  background-color: initial;
+  background-position: 0 0;
+  color: #007BFF;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+

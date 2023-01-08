@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
+import Post from "./components/Post";
 
 
 
@@ -53,6 +54,7 @@ const App = () => {
                         height="auto"
                         alt="logo" 
                         /></a>
+                        
         <div className="navbar-nav mr-auto">
         <form class="form-inline">
           <div class="form-group mx-sm-2 mb-2">
@@ -103,6 +105,7 @@ const App = () => {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route path="/user" element={<BoardUser />} />
+          <Route exact path="/post" element= {<Post />}/>
 
         </Routes>
       </div>

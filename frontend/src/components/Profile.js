@@ -53,10 +53,10 @@ export default class Profile extends Component {
         <div>
         <header className="jumbotron">
           <h3>
-          Cześć,<strong> {currentUser.username}</strong>!
+          Hi,<strong> {currentUser.username}</strong>!
           </h3>
           <br></br><br></br><br></br>
-          <h4>Twoje posty:</h4>
+          <h4>Your posts:</h4>
           <br></br>
           {this.state.posts
             .map(post => 
