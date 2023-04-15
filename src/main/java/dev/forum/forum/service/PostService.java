@@ -28,6 +28,12 @@ public class PostService {
     private final UserRepo userRepo;
     private final AuthService authService;
 
+    public List<PostResponse> getAllOrderByCreatedDateDesc() {
+        return postRepo.findAllByOrderByCreatedDateDesc()
+                .stream().map(postMapper::mapToDto)
+                .collect(Collectors.toList());
+    }
+
     public List<PostResponse> getAllByForumThread(String forumThreadName) {
         ForumThread forumThread = forumThreadRepo.findByName(forumThreadName)
                 .orElseThrow(() -> new ResourceNotFoundException("Forum thread '" + forumThreadName + "' not found."));
@@ -59,7 +65,6 @@ public class PostService {
         return postMapper.mapToDto(postRepo.findById(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Post with id " + postId + " not found.")));
     }
-
 
     public PostResponse create(PostRequest postRequest) {
         ForumThread forumThread = forumThreadRepo.findByName(postRequest.getForumThreadName())
