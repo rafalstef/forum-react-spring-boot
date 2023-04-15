@@ -65,7 +65,7 @@ public class AuthService {
                         user.getEmail(),
                         "Hello " + user.getUsername() + "!\n" +
                                 "Please click on the below url to activate your account : " +
-                                "http://localhost:8080/verify-account/" + token,
+                                "http://localhost:8080/api/auth/verify-account/" + token,
                         "Verify your email address",
                         null
                 )
